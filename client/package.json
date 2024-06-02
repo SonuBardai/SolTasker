@@ -1,14 +1,5 @@
 {
-  "name": "ks-frontend",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+  "author": "Sonu",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
     "@solana/wallet-adapter-base": "^0.9.23",
@@ -26,6 +17,7 @@
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.13.4",
     "@types/node": "^20.12.13",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
@@ -42,7 +34,17 @@
     "typescript": "^5.2.2",
     "vite": "^5.1.6"
   },
+  "license": "MIT",
   "main": "src/index.tsx",
-  "author": "Sonu",
-  "license": "MIT"
+  "name": "ks-frontend",
+  "private": true,
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "generate": "openapi-generator-cli generate -i http://localhost:8000/v1/openapi.json -g typescript-axios --skip-validate-spec -o src/shared/api/generated --additional-properties=useSingleRequestParameter=true,paramNaming=original",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "version": "0.0.0"
 }

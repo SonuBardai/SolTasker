@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { BACKEND_URL } from "../../../constants";
 import { PublicKey } from "@solana/web3.js";
+import getClient from "../../../api/config";
 
 export const login = createAsyncThunk("user/login", async (publicKey: PublicKey) => {
-  const response = await axios.post(`${BACKEND_URL}/v1/login`, { public_key: publicKey });
+  const apiClient = getClient();
+  const response = await apiClient.webAuthRouterLogin({ LoginPayload: { public_key: publicKey.toBase58() } });
   return response.data;
 });

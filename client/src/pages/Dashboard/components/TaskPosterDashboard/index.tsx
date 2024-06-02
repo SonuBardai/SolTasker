@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaGripVertical, FaTrash } from "react-icons/fa6";
 import DIALOG_IDS from "../../../../shared/core/Dialog/dialogIds";
 import Dialog from "../../../../shared/core/Dialog";
+import { COMMISSION_PERCENTAGE } from "../../../../shared/constants";
 
 type Option = {
   id: string;
@@ -11,8 +12,8 @@ type Option = {
 
 const TaskPosterDashboard = () => {
   const [options, setOptions] = useState<Option[]>([]);
-  const [limit, setLimit] = useState("0");
-  const [submissionsCount, setSubmissionsCount] = useState("1");
+  const [limit, setLimit] = useState("0.1");
+  const [submissionsCount, setSubmissionsCount] = useState("100");
 
   const openLimitSetter = () => {
     (document.getElementById(DIALOG_IDS.SET_SOL_LIMIT) as HTMLDialogElement)!.showModal();
@@ -32,7 +33,11 @@ const TaskPosterDashboard = () => {
             <span>Submissions count</span>
             <input type="text" className="input input-bordered w-full" value={submissionsCount} onChange={(e) => setSubmissionsCount(e.target.value)} />
           </span>
-          <span>{Number(limit || 0) / Number(submissionsCount || 1)} per submission</span>
+          <span>{Number(limit || 0) / Number(submissionsCount || 1)} SOL paid per submission</span>
+          <span>
+            +{Number(limit || 0) * COMMISSION_PERCENTAGE} SOL ({COMMISSION_PERCENTAGE * 100}%) commission charge
+          </span>
+          <span className="font-bold text-primary">Total: {(Number(limit || 0) * COMMISSION_PERCENTAGE + Number(limit || 0)).toFixed(5)} SOL</span>
         </div>
       </Dialog>
       <div className="flex flex-col gap-4">
