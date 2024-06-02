@@ -1,18 +1,6 @@
-import { useWallet } from "@solana/wallet-adapter-react";
 import { PROJECT_NAME } from "../../shared/constants";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const { publicKey } = useWallet();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (publicKey) {
-      navigate("/setup");
-    }
-  }, [publicKey, navigate]);
-
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
