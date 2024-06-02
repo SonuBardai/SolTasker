@@ -11,7 +11,6 @@ import { useMemo } from "react";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import Dashboard from "./pages/Dashboard";
-import Setup from "./pages/Setup";
 
 const App = () => {
   const network = WalletAdapterNetwork.Devnet;
@@ -30,7 +29,6 @@ const App = () => {
             <NavBar />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/setup" element={<Setup />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="*" element={<Page404 />} />
             </Routes>

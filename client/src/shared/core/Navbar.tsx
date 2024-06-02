@@ -3,15 +3,16 @@ import { PROJECT_NAME } from "../constants";
 
 import { WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { useEffect, useState } from "react";
-import { useStateDispatch } from "../store";
+import { useEffect } from "react";
+import { useStateDispatch, useStateSelector } from "../store";
 import { login } from "../store/reducers/user/thunk";
+import { DashboardView, setDashboardView } from "../store/reducers/user/reducer";
 
 const NavBar = () => {
-  const [taskerView, setTaskerView] = useState(true);
   const { publicKey } = useWallet();
   const navigate = useNavigate();
   const dispatch = useStateDispatch();
+  const { dashboardView } = useStateSelector((state) => state.user);
 
   useEffect(() => {
     if (publicKey) {
@@ -34,7 +35,13 @@ const NavBar = () => {
       <div className="gap-4 items-center flex justify-center">
         {publicKey && (
           <span className="flex items-center gap-2">
-            <input type="checkbox" className="toggle" checked={taskerView} onChange={() => setTaskerView(!taskerView)} /> <span>Tasker dashboard</span>
+            <input
+              type="checkbox"
+              className="toggle"
+              checked={dashboardView === DashboardView.Tasker}
+              onChange={() => dispatch(setDashboardView(dashboardView === DashboardView.Tasker ? DashboardView.TaskPoster : DashboardView.Tasker))}
+            />{" "}
+            <span>{dashboardView === DashboardView.Tasker ? "Tasker dashboard" : "Task Poster dashboard"}</span>
           </span>
         )}
         <div className="flex-none gap-4">{publicKey ? <WalletDisconnectButton /> : <WalletMultiButton />}</div>
