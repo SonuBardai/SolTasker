@@ -3,3 +3,6 @@ run_client:
 
 run_server:
 	cd server && pipenv run python manage.py runserver
+
+generate:
+	cd client && yarn generate
