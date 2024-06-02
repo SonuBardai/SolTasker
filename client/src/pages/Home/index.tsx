@@ -1,6 +1,11 @@
+import { useWallet } from "@solana/wallet-adapter-react";
 import { PROJECT_NAME } from "../../shared/constants";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const { publicKey } = useWallet();
+  const navigate = useNavigate();
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
@@ -10,20 +15,26 @@ const Home = () => {
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam voluptatum expedita quisquam autem facere dolores deleniti modi fugiat at, sed odio quam odit aliquid
             iusto exercitationem distinctio labore a perferendis, suscipit, assumenda possimus reprehenderit. Beatae cumque deleniti dolorum qui deserunt!
           </p>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              const dropdown = document.querySelector(".wallet-adapter-dropdown");
-              if (dropdown) {
-                const buttonInsideDropdown = dropdown.querySelector("button");
-                if (buttonInsideDropdown) {
-                  buttonInsideDropdown.click();
+          {!publicKey ? (
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                const dropdown = document.querySelector(".wallet-adapter-dropdown");
+                if (dropdown) {
+                  const buttonInsideDropdown = dropdown.querySelector("button");
+                  if (buttonInsideDropdown) {
+                    buttonInsideDropdown.click();
+                  }
                 }
-              }
-            }}
-          >
-            Connect Wallet
-          </button>
+              }}
+            >
+              Connect Wallet
+            </button>
+          ) : (
+            <button className="btn btn-primary" onClick={() => navigate("/dashboard")}>
+              Dashboard
+            </button>
+          )}
         </div>
       </div>
     </div>

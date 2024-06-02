@@ -17,7 +17,7 @@ type UserStateType = {
 
 const initialState: UserStateType = {
   user: null,
-  dashboardView: DashboardView.TaskPoster,
+  dashboardView: (localStorage.getItem("dashboardView") as DashboardView) || DashboardView.TaskPoster,
 };
 
 const userSlice = createSlice({
@@ -28,6 +28,7 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     setDashboardView: (state, action) => {
+      localStorage.setItem("dashboardView", action.payload);
       state.dashboardView = action.payload;
     },
   },
