@@ -42,8 +42,11 @@
     "build": "tsc && vite build",
     "dev": "vite",
     "generate": "openapi-generator-cli generate -i http://localhost:8000/v1/openapi.json -g typescript-axios --skip-validate-spec -o src/shared/api/generated --additional-properties=useSingleRequestParameter=true,paramNaming=original",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fmt": "prettier --write \"**/*.ts\" \"**/*.tsx\"",
+    "fmt:check": "prettier --check \"**/*.ts\" \"**/*.tsx\"",
+    "lint": "eslint --debug . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "lint:check": "eslint --debug . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "type": "module",
   "version": "0.0.0"
