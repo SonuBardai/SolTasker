@@ -1,3 +1,7 @@
+install:
+	cd client && yarn
+	cd server && pipenv install
+
 run_client:
 	cd client && yarn dev
 

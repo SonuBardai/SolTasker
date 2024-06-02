@@ -1,11 +1,6 @@
-# Server setup
-- cd server
-- pipenv shell
-- pipenv install
-- project search and replace 'sol_tasker' with newname
+# SolTasker
 
-# Client setup
-- cd client
-- yarn
-- rename project in src/shared/constants.ts
-- yarn dev
+## Setup
+- `make install`
+- `make run_server`
+- `make run_client`
