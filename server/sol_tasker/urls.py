@@ -5,10 +5,9 @@ from web_auth.router import router as web_auth_router
 
 
 api = NinjaAPI()
-
 api.add_router("", web_auth_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("rest/", api.urls),
+    path("v1/", api.urls),
 ]
