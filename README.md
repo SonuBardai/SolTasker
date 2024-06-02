@@ -2,7 +2,7 @@
 - cd server
 - pipenv shell
 - pipenv install
-- project search and replace 'turkify' with newname
+- project search and replace 'sol_tasker' with newname
 
 # Client setup
 - cd client

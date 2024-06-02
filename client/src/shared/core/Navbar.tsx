@@ -8,8 +8,6 @@ const NavBar = () => {
   const { publicKey } = useWallet();
   const navigate = useNavigate();
 
-  const handleClick = () => {};
-
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -18,17 +16,7 @@ const NavBar = () => {
         </a>
       </div>
 
-      <div className="flex-none gap-4">
-        {publicKey ? <WalletDisconnectButton /> : <WalletMultiButton />}
-        <button
-          className="btn btn-outline btn-ghost"
-          onClick={() => {
-            handleClick;
-          }}
-        >
-          Connect wallet
-        </button>
-      </div>
+      <div className="flex-none gap-4">{publicKey ? <WalletDisconnectButton /> : <WalletMultiButton />}</div>
     </div>
   );
 };

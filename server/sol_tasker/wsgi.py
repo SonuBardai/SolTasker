@@ -1,5 +1,5 @@
 """
-WSGI config for turkify project.
+WSGI config for sol_tasker project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "turkify.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sol_tasker.settings")
 
 application = get_wsgi_application()
