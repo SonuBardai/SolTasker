@@ -10,7 +10,7 @@ const Home = () => {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h1 className="text-5xl font-bold">Welcome to {PROJECT_NAME}!</h1>
+          <h1 className="text-5xl font-bold">Woah! Welcome to {PROJECT_NAME}!</h1>
           <div>{import.meta.env.BACKEND_URL}</div>
           <p className="py-6">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam voluptatum expedita quisquam autem facere dolores deleniti modi fugiat at, sed odio quam odit aliquid
