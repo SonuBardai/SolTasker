@@ -6,8 +6,6 @@ const Home = () => {
   const { publicKey } = useWallet();
   const navigate = useNavigate();
 
-  console.log("ALL ENV VARIABLES: ", import.meta.env);
-
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
