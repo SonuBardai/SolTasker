@@ -55,7 +55,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://sol-tasker.vercel.app/",
+    "https://sol-tasker.vercel.app",
 ]
 
 ROOT_URLCONF = "sol_tasker.urls"
