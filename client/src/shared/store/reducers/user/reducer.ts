@@ -13,11 +13,13 @@ export enum DashboardView {
 type UserStateType = {
   user: User | null;
   dashboardView: DashboardView;
+  loading: boolean;
 };
 
 const initialState: UserStateType = {
   user: null,
   dashboardView: (localStorage.getItem("dashboardView") as DashboardView) || DashboardView.TaskPoster,
+  loading: false,
 };
 
 const userSlice = createSlice({
