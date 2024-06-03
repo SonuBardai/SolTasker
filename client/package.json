@@ -45,7 +45,7 @@
     "fmt:check": "prettier --check \"**/*.ts\" \"**/*.tsx\"",
     "generate": "openapi-generator-cli generate -i http://localhost:8000/v1/openapi.json -g typescript-axios --skip-validate-spec -o src/shared/api/generated --additional-properties=useSingleRequestParameter=true,paramNaming=original",
     "lint": "eslint --debug . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
-    "lint:check": "eslint --debug . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:check": "eslint --debug . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-path .eslintignore",
     "preview": "vite preview"
   },
   "type": "module",
