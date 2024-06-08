@@ -1,14 +1,6 @@
 #!/bin/bash
 
-# Print the Python version and pip version
-python --version
-pip --version
-
-# Install pipenv globally
-pip install pipenv
-
-# Print the location of pipenv
-which pipenv
-
-# Run pipenv install using the python module invocation
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install pipenv
 python -m pipenv install
