@@ -4,6 +4,6 @@ from ninja import Router
 router = Router()
 
 
-@router.post("status")
+@router.get("status")
 def status(request):
     return {"status": "ok"}
