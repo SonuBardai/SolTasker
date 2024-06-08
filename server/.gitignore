@@ -1,6 +1,7 @@
 # Project
 logs/
 *.log
+staticfiles
 
 # Python
 *.egg
