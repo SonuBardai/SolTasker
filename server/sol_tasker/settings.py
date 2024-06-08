@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "web_auth",
+    "task",
 ]
 
 MIDDLEWARE = [
